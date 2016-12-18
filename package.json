@@ -1,0 +1,29 @@
+{
+  "name": "react-skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "readline-sync": "^1.4.5",
+    "watchify": "^3.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+      "start": "watchify React-Skeleton/src/main.jsx -v -t [ babelify --presets [ react ] ] -o React-Skeleton/public/js/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thenewstockton/react-skeleton.git"
+  },
+  "author": "thenewstockton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thenewstockton/react-skeleton/issues"
+  },
+  "homepage": "https://github.com/thenewstockton/react-skeleton#readme"
+}
