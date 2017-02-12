@@ -13,13 +13,24 @@ var List = React.createClass({
 
     mixins: [Reflux.listenTo(IngredientStore, 'onChange')],
     getInitialState: function () {
-        return { ingredients: [] };
+        return { ingredients: [], newText: "" };
     },
     componentWillMount: function () {
         Actions.getIngredients();
     },
     onChange: function (event, ingredients) {
         this.setState({ ingredients: ingredients });
+    },
+    onInputChange: function (e) {
+        this.setState({
+            newText: e.target.value
+        });
+    },
+    onClick: function (e) {
+        if (this.state.newText) {
+            Actions.postIngredient(this.state.newText);
+        }
+        this.setState({ newText: "" });
     },
     render: function () {
         // var createItem = function(text, index) {
@@ -32,9 +43,19 @@ var List = React.createClass({
         });
 
         return React.createElement(
-            'ul',
+            'div',
             null,
-            listItems
+            React.createElement('input', { placeholder: 'Add Item', value: this.state.newText, onChange: this.onInputChange }),
+            React.createElement(
+                'button',
+                { onClick: this.onClick },
+                'Add Item'
+            ),
+            React.createElement(
+                'ul',
+                null,
+                listItems
+            )
         );
     }
 });
@@ -96,7 +117,20 @@ var IngredientStore = Reflux.createStore({
     postIngredient: function (text) {
         //Posted Ingredient to the server 
         //now we got a successful callback
+        if (!this.ingredients) {
+            this.ingredients = [];
+        }
 
+        var ingredient = {
+            "text": text,
+            "id": Math.floor(Date.now() / 1000) + text
+        };
+
+        this.ingredients.push(ingredient);
+        this.fireUpdate();
+        HTTP.post('/ingredients', ingredient).then(function (response) {
+            this.getIngredients();
+        }.bind(this));
     },
     //Refresh function
     fireUpdate: function () {
@@ -116,6 +150,18 @@ var service = {
         console.log("Making request");
         return fetch(baseUrl + url).then(function (response) {
             return response.json();
+        });
+    },
+    post: function (url, ingredient) {
+        return fetch(baseUrl + url, {
+            headers: {
+                'Accept': 'text/plain',
+                'Content-Type': 'application/json'
+            },
+            method: 'post',
+            body: JSON.stringify(ingredient)
+        }).then(function (response) {
+            return response;
         });
     }
 };
