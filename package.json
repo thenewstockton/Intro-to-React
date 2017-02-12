@@ -6,27 +6,17 @@
   "dependencies": {
     "babel-preset-react": "^6.22.0",
     "babelify": "^7.3.0",
-    "history": "^1.13.1",
-<<<<<<< HEAD
+    "history": "^1.13.1", 
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-=======
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
->>>>>>> 46ecd052aea9b377d5f1d24bbdcc64195c01c0e2
+    "react-dom": "^15.4.2", 
     "react-router": "^3.0.0",
     "readline-sync": "^1.4.5",
     "watchify": "^3.9.0"
   },
   "devDependencies": {},
-  "scripts": {
-<<<<<<< HEAD
-    "//": "watchify React-routing/src/main.jsx -v -t [ babelify --presets [ react ] ] -o React-routing/public/js/main.js",
-    "start": "watchify React-Skeleton/src/main.jsx -v -t [ babelify --presets [ react ] ] -o React-Skeleton/public/js/main.js",
-=======
+  "scripts": { 
     "start": "watchify React-routing/src/main.jsx -v -t [ babelify --presets [ react ] ] -o React-routing/public/js/main.js",
     "//": "watchify React-Skeleton/src/main.jsx -v -t [ babelify --presets [ react ] ] -o React-Skeleton/public/js/main.js",
->>>>>>> 46ecd052aea9b377d5f1d24bbdcc64195c01c0e2
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
