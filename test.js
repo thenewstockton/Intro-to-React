@@ -13,11 +13,10 @@
     //npm install -g http-server
     
 //npm install history@1.13.1 react-router@latest --save
-<<<<<<< HEAD
 
-//npm install -g nodemon
-=======
->>>>>>> 46ecd052aea9b377d5f1d24bbdcc64195c01c0e2
+//npm install -g nodemon 
+
+//npm install --save whatwg-fetch
 var rs = require("readline-sync");
 
 var name = rs.question("what is your name?");
