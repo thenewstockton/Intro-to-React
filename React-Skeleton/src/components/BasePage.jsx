@@ -19,8 +19,6 @@ var navLinks = [
 
 
 var BasePage = React.createClass({
-    
-    
     render: function(){
         var style = {
             paddingTop: 20

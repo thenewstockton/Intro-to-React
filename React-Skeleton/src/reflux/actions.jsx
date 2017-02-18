@@ -1,8 +1,9 @@
 var Reflux = require('reflux');
 
 var Actions = Reflux.createActions([
-    'getIngredients',
-    'postIngredient'
+    'submitEmail'
+    // ''getIngredients',
+    // 'postIngredient''
 ]);
 
 module.exports = Actions;
